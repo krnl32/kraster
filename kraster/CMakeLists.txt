@@ -5,6 +5,13 @@ file(GLOB_RECURSE KRASTER_SOURCES
 	"${CMAKE_CURRENT_SOURCE_DIR}/utility/logger.c"
 	"${CMAKE_CURRENT_SOURCE_DIR}/utility/io.h"
 	"${CMAKE_CURRENT_SOURCE_DIR}/utility/io.c"
+
+	"${CMAKE_CURRENT_SOURCE_DIR}/kraster.h"
+	"${CMAKE_CURRENT_SOURCE_DIR}/kraster.c"
+	"${CMAKE_CURRENT_SOURCE_DIR}/render.h"
+	"${CMAKE_CURRENT_SOURCE_DIR}/render.c"
+	"${CMAKE_CURRENT_SOURCE_DIR}/platform.h"
+	"${CMAKE_CURRENT_SOURCE_DIR}/platform.c"
 )
 
 add_executable(${KRASTER_TARGET_NAME} ${KRASTER_SOURCES})
