@@ -9,12 +9,12 @@ struct kraster_platform;
 struct kraster {
 	struct kraster_platform *platform;
 	uint32_t *framebuffer;
-	uint32_t width;
-	uint32_t height;
+	int width;
+	int height;
 	bool running;
 };
 
-struct kraster *kraster_create(const char *name, uint32_t width, uint32_t height);
+struct kraster *kraster_create(const char *name, int width, int height);
 void kraster_destroy(struct kraster *kraster);
 
 #endif

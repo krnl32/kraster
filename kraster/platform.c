@@ -17,7 +17,7 @@ int kraster_platform_init(struct kraster *kraster, const char *name)
 		return -1;
 	}
 
-	kraster->platform->window = SDL_CreateWindow(name, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, (int)kraster->width, (int)kraster->height, SDL_WINDOW_BORDERLESS);
+	kraster->platform->window = SDL_CreateWindow(name, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, kraster->width, kraster->height, SDL_WINDOW_BORDERLESS);
 	if (!kraster->platform->window) {
 		kraster_error("SDL_CreateWindow failed");
 		SDL_Quit();
@@ -34,7 +34,7 @@ int kraster_platform_init(struct kraster *kraster, const char *name)
 		return -1;
 	}
 
-	kraster->platform->texture = SDL_CreateTexture(kraster->platform->renderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING, (int)kraster->width, (int)kraster->height);
+	kraster->platform->texture = SDL_CreateTexture(kraster->platform->renderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING, kraster->width, kraster->height);
 	if (!kraster->platform->texture) {
 		kraster_error("SDL_CreateTexture failed");
 		SDL_DestroyRenderer(kraster->platform->renderer);
@@ -79,7 +79,7 @@ void kraster_platform_poll(struct kraster *kraster)
 
 void kraster_platform_render(struct kraster *kraster)
 {
-	if (SDL_UpdateTexture(kraster->platform->texture, NULL, kraster->framebuffer, (int)(sizeof(*kraster->framebuffer) * kraster->width)) != 0) {
+	if (SDL_UpdateTexture(kraster->platform->texture, NULL, kraster->framebuffer, (int)(sizeof(*kraster->framebuffer) * (size_t)kraster->width)) != 0) {
 		kraster_error("SDL_UpdateTexture failed");
 		return;
 	}

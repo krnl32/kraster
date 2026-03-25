@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct kraster *kraster_create(const char *name, uint32_t width, uint32_t height)
+struct kraster *kraster_create(const char *name, int width, int height)
 {
 	struct kraster *kraster = malloc(sizeof(*kraster));
 	if (!kraster) {
@@ -22,7 +22,7 @@ struct kraster *kraster_create(const char *name, uint32_t width, uint32_t height
 		return NULL;
 	}
 
-	kraster->framebuffer = malloc(sizeof(*kraster->framebuffer) * width * height);
+	kraster->framebuffer = malloc(sizeof(*kraster->framebuffer) * (size_t)width * (size_t)height);
 	if (!kraster->framebuffer) {
 		perror("malloc");
 		kraster_platform_deinit(kraster);

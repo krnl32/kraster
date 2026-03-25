@@ -2,37 +2,37 @@
 
 void kraster_render_clear(struct kraster *kraster, uint32_t color)
 {
-	for (uint32_t y = 0; y < kraster->height; y++) {
-		for (uint32_t x = 0; x < kraster->width; x++) {
-			kraster->framebuffer[(kraster->width * y) + x] = color;
+	for (int y = 0; y < kraster->height; y++) {
+		for (int x = 0; x < kraster->width; x++) {
+			kraster_render_pixel(kraster, x, y, color);
 		}
 	}
 }
 
-void kraster_render_grid(struct kraster *kraster)
+void kraster_render_grid(struct kraster *kraster, uint32_t color)
 {
-	uint32_t multiples = 10;
+	int multiples = 10;
 
 	// Horizontally
-	for (uint32_t y = 0; y < kraster->height; y += multiples) {
-		for (uint32_t x = 0; x < kraster->width; x++) {
-			kraster->framebuffer[(kraster->width * y) + x] = 0xFFFFFFFF;
+	for (int y = 0; y < kraster->height; y += multiples) {
+		for (int x = 0; x < kraster->width; x++) {
+			kraster_render_pixel(kraster, x, y, color);
 		}
 	}
 
 	// Vertically
-	for (uint32_t x = 0; x < kraster->width; x += multiples) {
-		for (uint32_t y = 0; y < kraster->height; y++) {
-			kraster->framebuffer[(kraster->width * y) + x] = 0xFFFFFFFF;
+	for (int x = 0; x < kraster->width; x += multiples) {
+		for (int y = 0; y < kraster->height; y++) {
+			kraster_render_pixel(kraster, x, y, color);
 		}
 	}
 }
 
-void kraster_render_rect(struct kraster *kraster, uint32_t x, uint32_t y, uint32_t width, uint32_t height, uint32_t color)
+void kraster_render_rect(struct kraster *kraster, int x, int y, int width, int height, uint32_t color)
 {
-	for (uint32_t r = y; r < (y + height); r++) {
-		for (uint32_t c = x; c < (x + width); c++) {
-			kraster->framebuffer[(kraster->width * r) + c] = color;
+	for (int r = y; r < (y + height); r++) {
+		for (int c = x; c < (x + width); c++) {
+			kraster_render_pixel(kraster, c, r, color);
 		}
 	}
 }
