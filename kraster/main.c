@@ -17,6 +17,7 @@ int main(void)
 		kraster_render_clear(kraster, 0xFF000000);
 		kraster_render_grid(kraster, 0xFF242424);
 		kraster_render_rect(kraster, 100, 50, 20, 10, 0xFF00FF00);
+		kraster_render_line(kraster, 100, 50, 20, 10, 0xFF00FF00);
 
 		kraster_platform_render(kraster);
 	}

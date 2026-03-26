@@ -30,7 +30,9 @@ function(set_compile_options_for_target target)
 			$<$<CONFIG:Debug>:-Wpedantic>
 			$<$<CONFIG:Debug>:-Werror>
 			$<$<CONFIG:Debug>:-Wno-error=switch-default>
-			$<$<CONFIG:Debug>:-Wno-error=unused-but-set-variable>
+			$<$<CONFIG:Debug>:-Wno-error=unused-variable>
+			$<$<CONFIG:Debug>:-Wno-error=unused-function>
+			$<$<CONFIG:Debug>:-Wno-error=unused-parameter>
 
 			$<$<CONFIG:Debug>:-Wconversion>
 			$<$<CONFIG:Debug>:-Wsign-conversion>
