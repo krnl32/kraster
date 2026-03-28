@@ -8,14 +8,15 @@ file(GLOB_RECURSE KRASTER_SOURCES
 	"${CMAKE_CURRENT_SOURCE_DIR}/utility/timer.h"
 	"${CMAKE_CURRENT_SOURCE_DIR}/utility/timer.c"
 
+	"${CMAKE_CURRENT_SOURCE_DIR}/math/vector.h"
+	"${CMAKE_CURRENT_SOURCE_DIR}/math/vector.c"
+
 	"${CMAKE_CURRENT_SOURCE_DIR}/kraster.h"
 	"${CMAKE_CURRENT_SOURCE_DIR}/kraster.c"
 	"${CMAKE_CURRENT_SOURCE_DIR}/render.h"
 	"${CMAKE_CURRENT_SOURCE_DIR}/render.c"
 	"${CMAKE_CURRENT_SOURCE_DIR}/platform.h"
 	"${CMAKE_CURRENT_SOURCE_DIR}/platform.c"
-	"${CMAKE_CURRENT_SOURCE_DIR}/math.h"
-	"${CMAKE_CURRENT_SOURCE_DIR}/math.c"
 	"${CMAKE_CURRENT_SOURCE_DIR}/mesh.h"
 	"${CMAKE_CURRENT_SOURCE_DIR}/mesh.c"
 	"${CMAKE_CURRENT_SOURCE_DIR}/triangle.h"

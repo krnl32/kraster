@@ -29,3 +29,4 @@ CmakeSettings.json
 *.dll
 *.exe
 *a.out
+assets/

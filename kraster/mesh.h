@@ -1,7 +1,7 @@
 #ifndef KRASTER_MESH_H
 #define KRASTER_MESH_H
 
-#include "kraster/math.h"
+#include "kraster/math/vector.h"
 #include <stddef.h>
 
 #define KRASTER_MESH_VERTEX_MAX 1024
