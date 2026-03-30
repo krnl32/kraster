@@ -27,6 +27,19 @@ float kraster_vec2_dot(struct kraster_vec2 vec1, struct kraster_vec2 vec2)
 	return (vec1.x * vec2.x) + (vec1.y * vec2.y);
 }
 
+struct kraster_vec2 kraster_vec2_normalize(struct kraster_vec2 vec)
+{
+	float len = kraster_vec2_length(vec);
+	return (struct kraster_vec2){ vec.x / len, vec.y / len };
+}
+
+void kraster_vec2_normalize2(struct kraster_vec2 *vec)
+{
+	float len = kraster_vec2_length(*vec);
+	vec->x /= len;
+	vec->y /= len;
+}
+
 float kraster_vec2_length(struct kraster_vec2 vec)
 {
 	return sqrtf((vec.x * vec.x) + (vec.y * vec.y));
@@ -64,6 +77,20 @@ struct kraster_vec3 kraster_vec3_cross(struct kraster_vec3 vec1, struct kraster_
 float kraster_vec3_dot(struct kraster_vec3 vec1, struct kraster_vec3 vec2)
 {
 	return (vec1.x * vec2.x) + (vec1.y * vec2.y) + (vec1.z * vec2.z);
+}
+
+struct kraster_vec3 kraster_vec3_normalize(struct kraster_vec3 vec)
+{
+	float len = kraster_vec3_length(vec);
+	return (struct kraster_vec3){ vec.x / len, vec.y / len, vec.z / len };
+}
+
+void kraster_vec3_normalize2(struct kraster_vec3 *vec)
+{
+	float len = kraster_vec3_length(*vec);
+	vec->x /= len;
+	vec->y /= len;
+	vec->z /= len;
 }
 
 float kraster_vec3_length(struct kraster_vec3 vec)
