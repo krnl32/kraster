@@ -11,6 +11,8 @@ file(GLOB_RECURSE KRASTER_SOURCES
 	"${CMAKE_CURRENT_SOURCE_DIR}/math/util.h"
 	"${CMAKE_CURRENT_SOURCE_DIR}/math/vector.h"
 	"${CMAKE_CURRENT_SOURCE_DIR}/math/vector.c"
+	"${CMAKE_CURRENT_SOURCE_DIR}/math/matrix.h"
+	"${CMAKE_CURRENT_SOURCE_DIR}/math/matrix.c"
 
 	"${CMAKE_CURRENT_SOURCE_DIR}/kraster.h"
 	"${CMAKE_CURRENT_SOURCE_DIR}/kraster.c"

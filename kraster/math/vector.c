@@ -124,3 +124,13 @@ struct kraster_vec3 kraster_vec3_rotate_z(struct kraster_vec3 vec, float angle)
 	rotated.z = vec.z;
 	return rotated;
 }
+
+struct kraster_vec4 kraster_vec3_to_vec4(struct kraster_vec3 vec)
+{
+	return (struct kraster_vec4){ vec.x, vec.y, vec.z, 1.0f };
+}
+
+struct kraster_vec3 kraster_vec4_to_vec3(struct kraster_vec4 vec)
+{
+	return (struct kraster_vec3){ vec.x, vec.y, vec.z };
+}
