@@ -44,5 +44,6 @@ struct kraster_vec3 kraster_vec3_rotate_z(struct kraster_vec3 vec, float angle);
 
 struct kraster_vec4 kraster_vec3_to_vec4(struct kraster_vec3 vec);
 struct kraster_vec3 kraster_vec4_to_vec3(struct kraster_vec4 vec);
+struct kraster_vec2 kraster_vec4_to_vec2(struct kraster_vec4 vec);
 
 #endif

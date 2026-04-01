@@ -134,3 +134,8 @@ struct kraster_vec3 kraster_vec4_to_vec3(struct kraster_vec4 vec)
 {
 	return (struct kraster_vec3){ vec.x, vec.y, vec.z };
 }
+
+struct kraster_vec2 kraster_vec4_to_vec2(struct kraster_vec4 vec)
+{
+	return (struct kraster_vec2){ vec.x, vec.y };
+}

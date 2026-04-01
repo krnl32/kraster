@@ -71,6 +71,29 @@ struct kraster_mat4 kraster_mat4_rotate_z(float angle_deg)
 	} };
 }
 
+struct kraster_mat4 kraster_mat4_perspective(float fov_rad, float aspect, float znear, float zfar)
+{
+	return (struct kraster_mat4){ {
+		{ (aspect * (1 / tanf(fov_rad / 2))), 0.0f, 0.0f, 0.0f },
+		{ 0.0f, (1 / tanf(fov_rad / 2)), 0.0f, 0.0f },
+		{ 0.0f, 0.0f, (zfar / (zfar - znear)), ((-zfar * znear) / (zfar - znear)) },
+		{ 0.0f, 0.0f, 1.0f, 0.0f },
+	} };
+}
+
+struct kraster_vec4 kraster_mat4_project(struct kraster_mat4 projection, struct kraster_vec4 vec)
+{
+	struct kraster_vec4 res = kraster_mat4_mulv4(projection, vec);
+
+	if (fabsf(res.w) > 0.000001f) {
+		res.x /= res.w;
+		res.y /= res.w;
+		res.z /= res.w;
+	}
+
+	return res;
+}
+
 struct kraster_vec4 kraster_mat4_mulv4(struct kraster_mat4 mat, struct kraster_vec4 vec)
 {
 	struct kraster_vec4 res;
