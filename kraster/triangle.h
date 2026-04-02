@@ -8,6 +8,7 @@
 struct kraster_triangle {
 	struct kraster_vec2 vertices[3];
 	uint32_t color;
+	float depth;
 };
 
 #endif
