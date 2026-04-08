@@ -8,4 +8,11 @@ static inline void swapi(int *x, int *y)
 	*y = t;
 }
 
+static inline void swapf(float *x, float *y)
+{
+	float t = *x;
+	*x = *y;
+	*y = t;
+}
+
 #endif

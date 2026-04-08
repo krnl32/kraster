@@ -9,19 +9,19 @@
 #include <stdarg.h>
 
 static const char *rvm_logger_level_strings[] = { "INFO", "DEBUG", "WARN", "ERROR", "FATAL", "TRACE" };
-static void rvm_localtime(time_t *t, struct tm *out);
+static void kraster_localtime(time_t *t, struct tm *out);
 
 void kraster_log(enum kraster_logger_level level, const char *file, int line, const char *fmt, ...)
 {
 #ifdef NDEBUG
-	if (level == RVM_LOGGER_DEBUG || level == RVM_LOGGER_TRACE) {
+	if (level == KRASTER_LOGGER_DEBUG || level == KRASTER_LOGGER_TRACE) {
 		return;
 	}
 #endif
 
 	time_t now = time(NULL);
 	struct tm tm;
-	rvm_localtime(&now, &tm);
+	kraster_localtime(&now, &tm);
 
 	char timebuf[16];
 	strftime(timebuf, sizeof(timebuf), "%H:%M:%S", &tm);
@@ -74,7 +74,7 @@ void kraster_log(enum kraster_logger_level level, const char *file, int line, co
 	}
 }
 
-static void rvm_localtime(time_t *t, struct tm *out)
+static void kraster_localtime(time_t *t, struct tm *out)
 {
 #if defined(_WIN32)
 	localtime_s(out, t);

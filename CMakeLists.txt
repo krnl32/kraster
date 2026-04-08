@@ -92,6 +92,7 @@ endfunction()
 # Extensions
 include(FetchContent)
 
+# SDL2
 FetchContent_Declare(
 	SDL2
 	GIT_REPOSITORY "https://github.com/libsdl-org/SDL.git"
@@ -99,5 +100,16 @@ FetchContent_Declare(
 	GIT_SHALLOW TRUE
 )
 FetchContent_MakeAvailable(SDL2)
+
+# STB
+FetchContent_Declare(
+	stb_image
+	GIT_REPOSITORY "https://github.com/nothings/stb.git"
+	GIT_TAG "master"
+	GIT_SHALLOW TRUE
+)
+FetchContent_MakeAvailable(stb_image)
+add_library(stb_image INTERFACE ${stb_image_SOURCE_DIR}/stb_image.h)
+target_include_directories(stb_image INTERFACE ${stb_image_SOURCE_DIR})
 
 add_subdirectory(${KRASTER_TARGET_NAME})

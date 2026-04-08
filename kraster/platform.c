@@ -34,7 +34,7 @@ int kraster_platform_init(struct kraster *kraster, const char *name)
 		return -1;
 	}
 
-	kraster->platform->texture = SDL_CreateTexture(kraster->platform->renderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING, kraster->width, kraster->height);
+	kraster->platform->texture = SDL_CreateTexture(kraster->platform->renderer, SDL_PIXELFORMAT_RGBA32, SDL_TEXTUREACCESS_STREAMING, kraster->width, kraster->height);
 	if (!kraster->platform->texture) {
 		kraster_error("SDL_CreateTexture failed");
 		SDL_DestroyRenderer(kraster->platform->renderer);

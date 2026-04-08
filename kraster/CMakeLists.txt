@@ -28,14 +28,24 @@ file(GLOB_RECURSE KRASTER_SOURCES
 	"${CMAKE_CURRENT_SOURCE_DIR}/triangle.c"
 	"${CMAKE_CURRENT_SOURCE_DIR}/light.h"
 	"${CMAKE_CURRENT_SOURCE_DIR}/light.c"
+	"${CMAKE_CURRENT_SOURCE_DIR}/texture.h"
+	"${CMAKE_CURRENT_SOURCE_DIR}/texture.c"
 )
 
 add_executable(${KRASTER_TARGET_NAME} ${KRASTER_SOURCES})
 
 set_compile_options_for_target(${KRASTER_TARGET_NAME})
 
+# STB
+target_sources(${KRASTER_TARGET_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/utility/stb_image.c")
+if (CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
+	set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/utility/stb_image.c" PROPERTIES COMPILE_FLAGS "-w")
+elseif (CMAKE_C_COMPILER_ID STREQUAL "MSVC")
+	set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/utility/stb_image.c" PROPERTIES COMPILE_FLAGS "/W0")
+endif()
+
 target_include_directories(${KRASTER_TARGET_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../")
- target_link_libraries(${KRASTER_TARGET_NAME} PRIVATE SDL2 m)
+target_link_libraries(${KRASTER_TARGET_NAME} PRIVATE SDL2 m stb_image)
 
 function(CopyLibToTarget LIB_NAME TARGET_NAME)
 	add_custom_command(TARGET ${TARGET_NAME}
