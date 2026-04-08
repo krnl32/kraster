@@ -9,6 +9,7 @@ struct kraster_platform;
 struct kraster {
 	struct kraster_platform *platform;
 	uint32_t *framebuffer;
+	float *depth_buffer;
 	int width;
 	int height;
 	bool running;

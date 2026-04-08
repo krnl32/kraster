@@ -30,6 +30,15 @@ struct kraster *kraster_create(const char *name, int width, int height)
 		return NULL;
 	}
 
+	kraster->depth_buffer = malloc(sizeof(*kraster->depth_buffer) * (size_t)width * (size_t)height);
+	if (!kraster->depth_buffer) {
+		perror("malloc");
+		free(kraster->framebuffer);
+		kraster_platform_deinit(kraster);
+		free(kraster);
+		return NULL;
+	}
+
 	kraster->running = true;
 	return kraster;
 }
@@ -37,8 +46,9 @@ struct kraster *kraster_create(const char *name, int width, int height)
 void kraster_destroy(struct kraster *kraster)
 {
 	if (kraster) {
-		kraster_platform_deinit(kraster);
+		free(kraster->depth_buffer);
 		free(kraster->framebuffer);
+		kraster_platform_deinit(kraster);
 		free(kraster);
 	}
 }

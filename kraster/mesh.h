@@ -7,8 +7,8 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#define KRASTER_MESH_VERTEX_MAX (1024 * 5)
-#define KRASTER_MESH_FACE_MAX (1024 * 5)
+#define KRASTER_MESH_VERTEX_MAX (1024 * 10)
+#define KRASTER_MESH_FACE_MAX (1024 * 10)
 
 struct kraster_face {
 	int x;
