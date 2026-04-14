@@ -13,5 +13,6 @@ int kraster_platform_init(struct kraster *kraster, const char *name);
 void kraster_platform_deinit(struct kraster *kraster);
 void kraster_platform_poll(struct kraster *kraster);
 void kraster_platform_render(struct kraster *kraster);
+void kraster_platform_sleep(struct kraster *kraster, uint32_t ms);
 
 #endif

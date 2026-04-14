@@ -43,7 +43,7 @@ if (CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
 	set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/utility/stb_image.c" PROPERTIES COMPILE_FLAGS "-w")
 elseif (CMAKE_C_COMPILER_ID STREQUAL "MSVC")
 	set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/utility/stb_image.c" PROPERTIES COMPILE_FLAGS "/W0")
-endif()
+endif ()
 
 target_include_directories(${KRASTER_TARGET_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/../")
 target_link_libraries(${KRASTER_TARGET_NAME} PRIVATE SDL2 m stb_image)

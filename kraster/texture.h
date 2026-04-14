@@ -14,4 +14,6 @@ struct kraster_texture {
 	int height;
 };
 
+struct kraster_texture *kraster_texture_load(const char *path);
+
 #endif

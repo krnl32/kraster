@@ -25,7 +25,7 @@ int kraster_platform_init(struct kraster *kraster, const char *name)
 		return -1;
 	}
 
-	kraster->platform->renderer = SDL_CreateRenderer(kraster->platform->window, -1, 0);
+	kraster->platform->renderer = SDL_CreateRenderer(kraster->platform->window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	if (!kraster->platform->renderer) {
 		kraster_error("SDL_CreateRenderer failed");
 		SDL_DestroyWindow(kraster->platform->window);
@@ -43,6 +43,8 @@ int kraster_platform_init(struct kraster *kraster, const char *name)
 		free(kraster->platform);
 		return -1;
 	}
+
+	SDL_SetRelativeMouseMode(1);
 
 	return 0;
 }
@@ -90,4 +92,10 @@ void kraster_platform_render(struct kraster *kraster)
 	}
 
 	SDL_RenderPresent(kraster->platform->renderer);
+}
+
+void kraster_platform_sleep(struct kraster *kraster, uint32_t ms)
+{
+	(void)kraster;
+	SDL_Delay(ms);
 }

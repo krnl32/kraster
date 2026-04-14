@@ -18,9 +18,45 @@
 
 Kraster Software Renderer.
 
-## Features
+# Features
 
-- 
+- Full 3D rendering pipeline:
+	- Model -> World -> View -> Projection transforms
+
+- Custom math library:
+	- Vec2 / Vec3 / Vec4 operations
+	- 4x4 matrix transforms (scale, rotate, translate, look-at, perspective)
+
+- Perspective projection with homogeneous divide
+
+- Depth buffering (Z-buffer)
+
+- Backface culling (toggleable)
+
+- Multiple render modes:
+	- Wireframe
+	- Wireframe + vertices
+	- Filled triangles
+	- Filled + wire overlay
+	- Textured
+	- Textured + wire overlay
+
+- Triangle rasterization:
+	- Scanline rasterization
+	- Barycentric coordinate interpolation
+
+- Perspective-correct texture mapping
+
+- Basic directional lighting (Lambert-style intensity)
+
+- OBJ mesh loading (vertices, UVs, faces)
+
+- Texture loading (via stb_image)
+
+- Camera system:
+	- Position + direction
+	- Yaw / pitch rotation
+	- Free movement controls (WASD + vertical + rotation)
 
 ## Build
 
@@ -35,7 +71,8 @@ yet, [please open a new issue](https://github.com/krnl32/kraster/issues/new).
 
 ## Contributing
 
-Please read through our [contributing guidelines](https://github.com/krnl32/kraster/blob/master/CONTRIBUTING.md). Included
+Please read through our [contributing guidelines](https://github.com/krnl32/kraster/blob/master/CONTRIBUTING.md).
+Included
 are directions for opening issues, coding standards, and notes on development.
 
 ## Authors

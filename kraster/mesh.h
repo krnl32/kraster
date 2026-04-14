@@ -26,11 +26,13 @@ struct kraster_mesh {
 	struct kraster_face faces[KRASTER_MESH_FACE_MAX];
 	size_t face_count;
 
-	struct kraster_texture texture;
+	struct kraster_texture *texture;
 
 	struct kraster_vec3 scale;
 	struct kraster_vec3 rotate;
 	struct kraster_vec3 translate;
 };
+
+struct kraster_mesh *kraster_mesh_load(const char *path);
 
 #endif
