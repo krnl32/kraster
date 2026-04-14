@@ -14,6 +14,8 @@ struct kraster_mat4 kraster_mat4_rotate_x(float angle_deg);
 struct kraster_mat4 kraster_mat4_rotate_y(float angle_deg);
 struct kraster_mat4 kraster_mat4_rotate_z(float angle_deg);
 
+struct kraster_mat4 kraster_mat4_look_at(struct kraster_vec3 eye, struct kraster_vec3 target, struct kraster_vec3 world_up);
+
 struct kraster_mat4 kraster_mat4_perspective(float fov_rad, float aspect, float znear, float zfar);
 struct kraster_vec4 kraster_mat4_project(struct kraster_mat4 projection, struct kraster_vec4 vec);
 

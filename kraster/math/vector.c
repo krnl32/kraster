@@ -14,12 +14,12 @@ struct kraster_vec2 kraster_vec2_sub(struct kraster_vec2 vec1, struct kraster_ve
 
 struct kraster_vec2 kraster_vec2_mul(struct kraster_vec2 vec, float factor)
 {
-	return (struct kraster_vec2){ vec.x * factor, vec.x * factor };
+	return (struct kraster_vec2){ vec.x * factor, vec.y * factor };
 }
 
 struct kraster_vec2 kraster_vec2_div(struct kraster_vec2 vec, float factor)
 {
-	return (struct kraster_vec2){ vec.x / factor, vec.x / factor };
+	return (struct kraster_vec2){ vec.x / factor, vec.y / factor };
 }
 
 float kraster_vec2_dot(struct kraster_vec2 vec1, struct kraster_vec2 vec2)
@@ -47,7 +47,7 @@ float kraster_vec2_length(struct kraster_vec2 vec)
 
 struct kraster_vec3 kraster_vec3_add(struct kraster_vec3 vec1, struct kraster_vec3 vec2)
 {
-	return (struct kraster_vec3){ vec1.x + vec2.x, vec1.y + vec2.y, vec1.z + vec1.z };
+	return (struct kraster_vec3){ vec1.x + vec2.x, vec1.y + vec2.y, vec1.z + vec2.z };
 }
 
 struct kraster_vec3 kraster_vec3_sub(struct kraster_vec3 vec1, struct kraster_vec3 vec2)
@@ -57,12 +57,12 @@ struct kraster_vec3 kraster_vec3_sub(struct kraster_vec3 vec1, struct kraster_ve
 
 struct kraster_vec3 kraster_vec3_mul(struct kraster_vec3 vec, float factor)
 {
-	return (struct kraster_vec3){ vec.x * factor, vec.x * factor, vec.z * factor };
+	return (struct kraster_vec3){ vec.x * factor, vec.y * factor, vec.z * factor };
 }
 
 struct kraster_vec3 kraster_vec3_div(struct kraster_vec3 vec, float factor)
 {
-	return (struct kraster_vec3){ vec.x / factor, vec.x / factor, vec.z / factor };
+	return (struct kraster_vec3){ vec.x / factor, vec.y / factor, vec.z / factor };
 }
 
 struct kraster_vec3 kraster_vec3_cross(struct kraster_vec3 vec1, struct kraster_vec3 vec2)

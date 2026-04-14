@@ -261,10 +261,15 @@ static void kraster_render_triangle_pixel(struct kraster *kraster, struct kraste
 	float wi = (1 / a.w) * alpha + (1 / b.w) * beta + (1 / c.w) * gamma;
 	wi = 1.0f - wi;
 
-	float depth = kraster->depth_buffer[(kraster->width * (int)p.y) + (int)p.x];
+	int pixel_loc = (kraster->width * (int)p.y) + (int)p.x;
+	if (pixel_loc <= 0 || pixel_loc >= (kraster->width * kraster->height)) {
+		return;
+	}
+
+	float depth = kraster->depth_buffer[pixel_loc];
 	if (wi < depth) {
 		kraster_render_pixel(kraster, (int)p.x, (int)p.y, color);
-		kraster->depth_buffer[(kraster->width * (int)p.y) + (int)p.x] = wi;
+		kraster->depth_buffer[pixel_loc] = wi;
 	}
 }
 
